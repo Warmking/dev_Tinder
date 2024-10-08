@@ -19,3 +19,5 @@ API validation - validate every field with proper vaidators .Eg - Validate the e
 - npm i cookie-parser
 - npm i jsonwebtoken
 
+# Create the routes for API 
+- use different routes for different category of API e.g for users use userRouter like that it will make our code more cleaner.  
