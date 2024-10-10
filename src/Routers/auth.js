@@ -2,6 +2,7 @@ const express = require('express')
 const auth = express.Router()
 const {User} = require('../model/user')
 const bcrypt = require('bcrypt')
+const {signUpValidation} = require('../utils/validator')
 
 
 auth.post("/signup", async (req, res) => {
@@ -44,5 +45,10 @@ auth.post("/signup", async (req, res) => {
       res.status(400).send("Error : " + err.message);
     }
   });
+  auth.post('/logout',(req,res)=>{
+    res.cookie('token',null,{
+      expires : new Date(Date.now())
+    })
+  })
   
   module.exports = auth

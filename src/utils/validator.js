@@ -5,8 +5,13 @@ const signUpValidation = (data) =>{
         {
         throw new Error('Mandatory fields are missing')
     }
-    
 }
+const validateProfileEdit = (data)=>{
+    const allowedEditFields = ['gender','about','skills','age','photoUrl']
+    const isDataValid = Object.keys(data).every(field=>allowedEditFields.includes(field))
+    return isDataValid
+}
+
 module.exports = {
-    signUpValidation
+    signUpValidation,validateProfileEdit
 }
